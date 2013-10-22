@@ -22,11 +22,11 @@ Ember.SimpleAuth.setup = function(app, options) {
     options.dataType = 'jsonp';
     options.data += '&_method=' + options.type;
 
-    if (Ember.SimpleAuth.Session.get('authToken')) {
+    if (session.get('authToken')) {
       if (options.url.indexOf('?') === -1) {
-        options.url += '?token=' + Ember.SimpleAuth.Session.get('authToken');
+        options.url += '?token=' + session.get('authToken');
       } else {
-        options.url += '&token=' + Ember.SimpleAuth.Session.get('authToken');
+        options.url += '&token=' + session.get('authToken');
       }
 
     }
