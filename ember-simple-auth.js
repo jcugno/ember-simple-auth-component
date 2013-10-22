@@ -20,6 +20,8 @@ Ember.SimpleAuth.setup = function(app, options) {
 
   Ember.$.ajaxPrefilter(function(options, originalOptions, jqXHR) {
     options.dataType = 'jsonp';
+
+    options.data = options.data || '';
     options.data += '&_method=' + options.type;
 
     if (session.get('authToken')) {
