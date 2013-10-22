@@ -33,7 +33,7 @@ Ember.SimpleAuth.setup = function(app, options) {
 Ember.SimpleAuth.Session = Ember.Object.extend({
   init: function() {
     this._super();
-    this.set('authToken', $.cookie('authToken');
+    this.set('authToken', $.cookie('authToken'));
   },
   setup: function(serverSession) {
     this.set('authToken', (serverSession.session || {}).authToken);
