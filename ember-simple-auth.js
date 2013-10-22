@@ -33,7 +33,7 @@ Ember.SimpleAuth.setup = function(app, options) {
 Ember.SimpleAuth.Session = Ember.Object.extend({
   init: function() {
     this._super();
-    this.set('authToken', sessionStorage.authToken);
+    this.set('authToken', $.cookie('authToken');
   },
   setup: function(serverSession) {
     this.set('authToken', (serverSession.session || {}).authToken);
@@ -47,9 +47,9 @@ Ember.SimpleAuth.Session = Ember.Object.extend({
   authTokenObserver: Ember.observer(function() {
     var authToken = this.get('authToken');
     if (Ember.isEmpty(authToken)) {
-      delete sessionStorage.authToken;
+      delete $.cookie('authToken');
     } else {
-      sessionStorage.authToken = this.get('authToken');
+      $.cookie('authToken') = this.get('authToken');
     }
   }, 'authToken')
 });
