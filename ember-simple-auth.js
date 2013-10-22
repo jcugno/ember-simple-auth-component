@@ -31,6 +31,7 @@ Ember.SimpleAuth.setup = function(app, options) {
         options.url += '&token=' + session.get('authToken');
       }
 
+      options.url += '&email=' + session.get('email');
     }
   });
 
