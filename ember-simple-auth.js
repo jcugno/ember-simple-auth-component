@@ -33,6 +33,8 @@ Ember.SimpleAuth.setup = function(app, options) {
 
       options.url += '&email=' + session.get('email');
     }
+
+    return 'jsonp';
   });
 
 };
