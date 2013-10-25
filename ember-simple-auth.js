@@ -18,25 +18,6 @@ Ember.SimpleAuth.setup = function(app, options) {
     app.inject(component, 'session', 'simple_auth:session');
   });
 
-  Ember.$.ajaxPrefilter(function(options, originalOptions, jqXHR) {
-    options.dataType = 'jsonp';
-
-    options.data = options.data || '';
-    options.data += '&_method=' + options.type;
-
-    if (session.get('authToken')) {
-      if (options.url.indexOf('?') === -1) {
-        options.url += '?token=' + session.get('authToken');
-      } else {
-        options.url += '&token=' + session.get('authToken');
-      }
-
-      options.url += '&email=' + session.get('email');
-    }
-
-    return 'jsonp';
-  });
-
 };
 
 })();
