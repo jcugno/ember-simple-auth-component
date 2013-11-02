@@ -1,5 +1,3 @@
-// Version: 0.0.2-6-g48729a9
-// Last commit: 48729a9 (2013-10-12 10:40:11 +0200)
 /*global Ember */
 
 (function() {
@@ -42,9 +40,9 @@ Ember.SimpleAuth.Session = Ember.Object.extend({
   authTokenObserver: Ember.observer(function() {
     var authToken = this.get('authToken');
     if (Ember.isEmpty(authToken)) {
-      $.cookie('authToken', '');
+      $.cookie('authToken', '', {path : '/' });
     } else {
-      $.cookie('authToken', this.get('authToken'));
+      $.cookie('authToken', this.get('authToken'), {path : '/'});
     }
   }, 'authToken')
 });
